@@ -155,12 +155,12 @@ client.on('message', async message => {
                     //coordenada padrao 55,125
                 }
 
-
+                console.log(tagUser + " recebeu uma cartela")
                 users.push(idUser); //adicionar User no banco
                 cartelaUsers.push(listNumbersSorteados) //adicionar lista no banco
 
                 layout.write(`./cartelafeita/${idUser}.png`, async() => {
-
+                    
                     await message.channel.send("<@" + idUser + "> sua cartela é de número: [ " + numOfCards + " ] boa sorte! :relaxed:  ", { files: [`./cartelafeita/${idUser}.png`] })
                     numOfCards++;
                     await fs.rm(path.resolve(path.dirname('').toString(), 'cartelafeita', `${idUser}.png`))
@@ -202,7 +202,7 @@ client.on('message', async message => {
 
                 } else {
                     let organizar = numSorteados.sort((a, b) => a - b);
-                    message.channel.send("todos os números já foram sorteados e ninguém venceu :zany_face: " + organizar)
+                    message.channel.send("todos os números já foram sorteados e quem dizer bingo primeiro ganha!  :zany_face: números sorteados: " + organizar)
                 }
             } else {
                 message.channel.send("<@" + idUser + "> você não tem permissão para sortear, espere alguém sortear :woozy_face: ")
@@ -375,7 +375,7 @@ client.on('message', async message => {
             if (comando === "reiniciar" || comando === "message" || comando === "bingo!" || comando === "consultar" || comando === "cartela" || comando === "sortear") {
                 console.log("comando existe")
             } else {
-                console.log("comando desconhecido")
+                console.log("comando desconhecido enviado por " + tagUser)
                 message.channel.send("<@" + idUser + "> Comando desconhecido :rolling_eyes::pinched_fingers: use um dos seguintes Comandos: \nB>cartela = Solicitar e receber uma cartela única e entrar no bingo!:ticket: \nB>sortear = Sortear um novo número(apenas Moderadores e Adm's) :new: \nB>bingo! = Gritar que é o vencedor e vencer o jogo sobrando nenhum número :partying_face: \nB>reiniciar = Apagar as cartelas e os números sorteados(apenas Moderadores e Adm's) :leftwards_arrow_with_hook: \nB>consultar = Consulte como está sua cartela e quais números foram removidos da sua cartela :pencil:  ")
             }
 
