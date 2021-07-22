@@ -31,7 +31,7 @@ function verifySecondsDiff(userData, messageData) {
     if (userData === undefined) {
         return false;
     }
-    if (differenceInSeconds(messageData, userData) < 10) {
+    if (differenceInSeconds(messageData, userData) < 6) {
 
         return true;
     }
@@ -67,7 +67,7 @@ client.on('message', async message => {
         if (idUser !== "454059471765766156") {
             const messageDate = new Date()
             if (verifySecondsDiff(usersTimeout[message.author.id], messageDate)) {
-                const seconds = 10 - differenceInSeconds(messageDate, usersTimeout[message.author.id])
+                const seconds = 6 - differenceInSeconds(messageDate, usersTimeout[message.author.id])
 
                 message.reply(`espere ${seconds} segundos antes de mandar uma nova mensagem :yawning_face: `)
                 return;
