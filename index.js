@@ -1,4 +1,6 @@
 import 'dotenv/config'
+if(process.env.NODE_ENV !== 'production')
+    dotenv.config();
 import Discord, { Guild } from 'discord.js'
 import { getRandomNumber } from './random.js';
 import { differenceInSeconds } from "date-fns";
