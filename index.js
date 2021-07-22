@@ -1,13 +1,12 @@
-import 'dotenv/config'
+import 'dotenv/config';
 if(process.env.NODE_ENV !== 'production')
     dotenv.config();
 import Discord, { Guild } from 'discord.js'
 import { getRandomNumber } from './random.js';
 import { differenceInSeconds } from "date-fns";
-import { MessageButton } from 'discord-buttons';
 import fs from 'fs/promises';
 import path from "path";
-import jimp from 'jimp'
+import jimp from 'jimp';
 
 const { token, prefix, channelBanco } = process.env
 
