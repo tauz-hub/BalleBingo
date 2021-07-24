@@ -77,7 +77,7 @@ client.on('message', async message => {
 
         if (comando === "reiniciar") { //comando para instaciar os objetos como eram antes
 
-            if (idUser === '454059471765766156' || '544226820925685770' || '286622177917403136' || '553414151758807064' || '146426367683198977' || '268830734083424259' ) {
+            if (idUser === "544226820925685770" ) {
                 console.log(tagUser + " reiniciou o jogo")
                 users.splice(0, users.length)
                 cartelaUsers.splice(0, cartelaUsers.length)
